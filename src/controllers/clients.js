@@ -31,6 +31,7 @@ clientsRouter.post('/', async (req, res) => {
       documentNumber,
       address,
       phone,
+      date: new Date()
     });
 
     const savedClient = await client.save();
