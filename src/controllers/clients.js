@@ -21,7 +21,7 @@ clientsRouter.post('/', async (req, res) => {
   const {
     firstName,
     lastname,
-    documentNumber,
+    identification,
     address,
     phone,
   } = req.body;
@@ -31,7 +31,7 @@ clientsRouter.post('/', async (req, res) => {
       firstName,
       lastname,
       fullName: `${firstName} ${lastname}`,
-      documentNumber,
+      identification,
       address,
       phone,
       date: new Date()

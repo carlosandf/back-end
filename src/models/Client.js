@@ -5,7 +5,7 @@ const clientSchema = new Schema({
   firstName: { type: String, required: true },
   lastname: { type: String, required: true },
   fullName: { type: String },
-  documentNumber: { type: String, required: true, unique: true },
+  identification: { type: String, required: true, unique: true },
   address: { type: String, required: true },
   phone: { type: String, required: true },
   date: Date
