@@ -19,7 +19,8 @@ clientsRouter.get('/:id', async (req, res, next) => {
 
 clientsRouter.post('/', async (req, res) => {
   const {
-    name,
+    firstName,
+    lastname,
     documentNumber,
     address,
     phone,
@@ -27,7 +28,9 @@ clientsRouter.post('/', async (req, res) => {
 
   try {
     const client = new Client({
-      name,
+      firstName,
+      lastname,
+      fullName: `${firstName} ${lastname}`,
       documentNumber,
       address,
       phone,

@@ -2,7 +2,9 @@ const { Schema, model } = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
 const clientSchema = new Schema({
-  name: { type: String, required: true },
+  firstName: { type: String, required: true },
+  lastname: { type: String, required: true },
+  fullName: { type: String },
   documentNumber: { type: String, required: true, unique: true },
   address: { type: String, required: true },
   phone: { type: String, required: true },
