@@ -4,7 +4,7 @@ const Client = require('../models/Client.js');
 
 clientsRouter.get('/', async (req, res) => {
   const Allclients = await Client.find({})
-  res.json(Allclients);
+  res.json(Allclients.reverse());
 });
 
 clientsRouter.get('/:id', async (req, res, next) => {
@@ -49,7 +49,10 @@ clientsRouter.put('/:id', async (req, res, next) => {
   const { id } = req.params;
   const { body } = req;
 
-  const clientToUpdate = { ...body }
+  const clientToUpdate = {
+    ...body,
+    fullName: `${body.firstName} ${body.lastname}`
+  }
 
   const updated = await Client.findByIdAndUpdate(id, clientToUpdate, { new: true });
   try {
