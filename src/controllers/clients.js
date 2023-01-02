@@ -46,7 +46,7 @@ clientsRouter.post('/', async (req, res) => {
   }
 });
 
-clientsRouter.put('/:id', async (req, res, next) => {
+clientsRouter.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { body } = req;
 
@@ -59,8 +59,7 @@ clientsRouter.put('/:id', async (req, res, next) => {
   try {
     res.status(201).json(updated).end();
   } catch (error) {
-    res.status(400).json(error);
-    next(error);
+    return res.status(400).json(error);
   }
 });
 
