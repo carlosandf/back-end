@@ -11,9 +11,10 @@ clientsRouter.get('/:id', async (req, res, next) => {
   const { id } = req.params;
   try {
     const client = await Client.findById(id);
-    res.status(200).json(client)
+    res.status(200).json(client);
   } catch (error) {
     next(error);
+    return res.status(400).json(error);
   }
 })
 
@@ -59,6 +60,7 @@ clientsRouter.put('/:id', async (req, res, next) => {
     res.status(201).json(updated).end();
   } catch (error) {
     next(error);
+    return res.status(400).json(error);
   }
 });
 
@@ -70,6 +72,7 @@ clientsRouter.delete('/:id', async (req, res, next) => {
     res.status(200).json(deletedClient);
   } catch (error) {
     next(error);
+    return res.status(400).json(error);
   }
 });
 
