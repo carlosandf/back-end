@@ -55,8 +55,8 @@ clientsRouter.put('/:id', async (req, res) => {
     fullName: `${body.firstName} ${body.lastname}`
   }
 
-  const updated = await Client.findByIdAndUpdate(id, clientToUpdate, { new: true });
   try {
+    const updated = await Client.findByIdAndUpdate(id, clientToUpdate, { new: true });
     res.status(201).json(updated).end();
   } catch (error) {
     return res.status(400).json(error);
